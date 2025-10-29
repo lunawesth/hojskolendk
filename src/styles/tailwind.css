@@ -33,17 +33,21 @@
 --font-bold: 'ABCSocial-Bold', sans-serif;
 
   /* Størrelser */
-  --text-display-h1: 70px;          /* store overskrifter */
-  --text-display-h2: 50px;
-  --text-display-tab: 35px;
-  --text-display-tlf: 25px;          /* mellem overskrifter */
+  --text-70: 70px;          /* store overskrifter */
+  --text-50: 50px;
+  --text-40: 40px;     /* til mindre skærme */
+  --text-35: 35px;
+  --text-25: 25px;
+  --text-20: 20px;
+  --text-16: 16px;             /* almindelig brødtekst */
+
+
 
   --line-height-display-h1: 73px;
   --line-height-display-h2: 53px;
   
 
-  --text-body-p: 16px;             /* almindelig brødtekst */
-  --text-body-line-height: auto;
+  --text-body-line-height: 19px;
 
   --text-nav: 20px;
   --text-nav-tab: 15px;           /* små labels og knapper */
@@ -51,13 +55,79 @@
 }
 
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+  h1 {
+    font-size: var(--text-70);
+    line-height: var(--line-height-display-h1);
+    font-family: var(--font-display);
   }
+
+  h2{
+    font-size: var(--text-50);
+    line-height: var(--line-height-display-h2);
+    font-family: var(--font-display);
+  }
+
+  h3{
+    font-size: var(--text-25);
+    font-family: var(--font-body);
+    line-height: var(--text-body-line-height);
+  }
+
+  h4{
+    font-size: var(--text-25);
+    font-family: var(--font-UI);
+  }
+
+  h5{
+    font-size: var(--text-25);
+    font-family: var(--font-body);
+  }
+
+  p{
+    font-size: var(--text-16);
+    line-height: var(--text-body-line-height);
+    font-family: var(--font-body);
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: var(--text-40);
+      font-family: var(--font-display);
+
+    }
+
+    h2 {
+      font-size: var(--text-35);
+      font-family: var(--font-display);
+
+    }
+
+    h3 {
+      font-size: var(--text-25);
+      font-family: var(--font-body);
+
+    }
+
+    h4 {
+      font-size: var(--text-20);
+      font-family: var(--font-UI);
+
+    }
+
+    h5{
+      font-size: var(--text-25);
+      font-family: var(--font-body);
+
+    }
+
+    p {
+      font-size: var(--text-16);
+      line-height: var(--text-body-line-height);
+      font-family: var(--font-body);
+    }
+  }
+
+  
 }
 
 @layer components{
