@@ -1,5 +1,39 @@
 ---
+
 ---
-<div>
-Header - tilføj navigation mm.
-</div>
+
+<nav
+  class="sticky grid grid-cols-5 gap-5 mx-5 mt-[60px] pb-[20px] md:grid-cols-8 md:mx-8 lg:grid-cols-12 lg:mx-10 lg:pt-4 items-center"
+>
+  <!-- Logo -->
+  <a href="#"
+    ><h1
+      class="font-bold text-display-tlf col-span-2 md:col-span-7 md:text-display-tab lg:text-display-h2"
+    >
+      Höjskolendk
+    </h1></a
+  >
+
+  <!-- Links -->
+
+  <a
+    href="#"
+    class="font-UI hidden md:inline-block lg:text-nav underline underline-offset-8 md:text-nav-tab md:col-start-5 lg:col-start-7 transition-transform duration-800 hover:rotate-[-10deg] origin-center"
+  >
+    Infomøde
+  </a>
+
+  <a
+    href="#"
+    class="font-UI hidden md:inline-flex justify-center items-center lg:text-nav underline underline-offset-8 md:text-nav-tab md:col-start-6 md:col-span-2 lg:col-start-9 transition-transform duration-800 hover:rotate-[-10deg] origin-center"
+  >
+    Tilmeld dig
+  </a>
+
+  <!-- Cirkelformet menu-knap -->
+  <button
+    id="menu-btn"
+    class="w-8 h-8 rounded-full border-2 border-black hover:bg-[#FF5900] justify-self-end col-start-5 md:col-start-8 lg:col-start-12"
+    onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+    aria-label="Åbn menu"></button>
+</nav>

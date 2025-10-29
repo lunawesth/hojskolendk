@@ -5,8 +5,49 @@
 @import "tailwindcss-animated";
 @import "tailwindcss-intersect";
 
+@font-face {
+  font-family: 'ABCMonumentGrotesk';
+  src: url('/fonts/ABCMonumentGrotesk-Regular-Trial.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ABCSocial-Medium';
+  src: url('/fonts/ABCSocialExtended-Medium-Trial.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'ABCSocial-Regular';
+  src: url('/fonts/ABCSocialExtended-Regular-Trial.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'ABCSocial-Bold';
+  src: url('/fonts/ABCSocial-Bold-Trial.woff') format('woff');
+}
+
 @theme {
-  /* Her tilføjes theme variable // tokens */
+/*Typografier*/
+--font-display: 'ABCSocial-Regular', sans-serif;
+--font-body: 'ABCMonumentGrotesk', sans-serif;
+--font-UI: 'ABCSocial-Medium', sans-serif;
+--font-bold: 'ABCSocial-Bold', sans-serif;
+
+  /* Størrelser */
+  --text-display-h1: 70px;          /* store overskrifter */
+  --text-display-h2: 50px;
+  --text-display-tab: 35px;
+  --text-display-tlf: 25px;          /* mellem overskrifter */
+
+  --line-height-display-h1: 73px;
+  --line-height-display-h2: 53px;
+  
+
+  --text-body-p: 16px;             /* almindelig brødtekst */
+  --text-body-line-height: auto;
+
+  --text-nav: 20px;
+  --text-nav-tab: 15px;           /* små labels og knapper */
+  --text-knap: 1.4;
 }
 
 @layer base {
