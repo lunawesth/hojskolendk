@@ -32,7 +32,7 @@ import Hero from "../components/Hero.astro";
       class="py-[27px] px-5 grid md:grid-cols-12 md:px-8 lg:px-10 lg:pb-15"
     >
       <img
-        src="/index-bjerg.png"
+        src="/index-bjerg.webp"
         alt="billede af bjerg"
         class="w-screen md:col-start-1 md:col-end-8"
       />
@@ -147,20 +147,16 @@ import Hero from "../components/Hero.astro";
       </div>
     </section>
 
-    <section class="px-5 grid md:grid-cols-12 md:px-8 lg:px-10">
-      <div class="md:col-start-1 md:col-end-5">
-        <img
-          src="/index-snorkel.png"
-          alt="Billede af elev"
-          class="flex flex-start pt-6 md:place-self-stretch"
-        />
+    <section
+      class="px-5 grid-rows-2 grid md:grid-rows-1 md:grid-cols-12 md:px-8 lg:px-10"
+    >
+      <div class="w-70 md:w-full md:col-start-1 md:col-end-5">
+        <img src="/index-snorkel.webp" alt="Billede af elev" class="pt-6" />
       </div>
-      <div class="md:col-start-6 md:col-end-13">
-        <img
-          src="/index-bjerg.png"
-          alt="Billede af bjerg"
-          class="flex place-self-end pt-6 md:place-self-stretch"
-        />
+      <div
+        class="w-100 ml-auto row-start-2 md:w-full md:row-start-1 md:col-start-6 md:col-end-13"
+      >
+        <img src="/index-bjerg.webp" alt="Billede af bjerg" class="pt-6" />
       </div>
     </section>
 
