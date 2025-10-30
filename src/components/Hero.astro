@@ -103,7 +103,7 @@
   </section>
 </div> -->
 <div class="overflow-clip">
-  <section id="horisontalscrollsection" class="h-[1000vw]">
+  <section id="horisontalscrollsection" class="h-[200vw] md:h-[150vw]">
     <ul id="horisontalliste" class="sticky top-[10vh]">
       <li class="w-[60vw] md:w-[200vw] relative">
         <figure class="max-w-[800px]">
@@ -136,7 +136,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-pose.png"
-            class="absolute parallax left-50 top-40"
+            class="absolute parallax left-50 top-40 md:left-90"
             alt="foto"
           />
         </figure>
@@ -145,7 +145,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-orange.png"
-            class="absolute parallax left-80 top-5"
+            class="absolute parallax left-80 top-5 md:left-100"
             alt="foto"
           />
         </figure>
@@ -154,7 +154,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-sof.png"
-            class="absolute parallax left-100 top-8"
+            class="absolute parallax left-100 top-8 md:left-150"
             alt="foto"
           />
         </figure>
@@ -163,7 +163,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-pool.png"
-            class="absolute parallax left-120 top-60 -z-10"
+            class="absolute parallax left-120 top-60 -z-10 md:left-160"
             alt="foto"
           />
         </figure>
@@ -172,7 +172,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-padde.png"
-            class="absolute parallax left-140 top-4"
+            class="absolute parallax left-140 top-4 md:left-180"
             alt="foto"
           />
         </figure>
@@ -181,7 +181,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-musling.png"
-            class="absolute parallax left-160 top-65"
+            class="absolute parallax left-160 top-65 md:left-200"
             alt="foto"
           />
         </figure>
@@ -190,7 +190,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-kiosk.png"
-            class="absolute parallax left-200 top-30"
+            class="absolute parallax left-200 top-30 md:left-270"
             alt="foto"
           />
         </figure>
@@ -199,7 +199,7 @@
         <figure class="max-w-[800px]">
           <img
             src="/hero-vandfald.png"
-            class="absolute parallax left-230 top-80"
+            class="absolute parallax left-230 top-80 md:left-300"
             alt="foto"
           />
         </figure>
@@ -209,26 +209,36 @@
 </div>
 
 <script>
-  import { scroll, animate } from "motion";
-
-  // Horizontal scroll animation
-  scroll(
-    animate("#horisontalliste", {
-      transform: ["none", "translateX(-500vw)"],
-    }),
-    { target: document.querySelector("#horisontalscrollsection") }
-  );
-
-  // Parallax effect for vertical scroll
+  // Parallax effect for vertical scroll — per-element data-speed og rAF for ydeevne
   document.addEventListener("DOMContentLoaded", () => {
-    window.addEventListener("scroll", () => {
-      const scrollPosition = window.scrollY; // Use vertical scroll position
-      const parallaxElements = document.querySelectorAll(".parallax");
+    const parallaxElements = Array.from(document.querySelectorAll(".parallax"));
+    const globalSlowdown = 5; // <1 = langsommere; fx 0.25 betyder 4x langsommere
 
-      parallaxElements.forEach((element, index) => {
-        const speed = (index + 1) * 0.1; // Customize the speed multiplier
-        element.style.transform = `translateX(-${scrollPosition * speed}px)`; // Move to the left
+    let latestScroll = 0;
+    let ticking = false;
+
+    function update() {
+      parallaxElements.forEach((el, index) => {
+        // læs evt. data-speed på elementet (fx data-speed="0.005")
+        const data = parseFloat(el.getAttribute("data-speed"));
+        // default baseret på index hvis ikke defineret
+        const baseSpeed = Number.isFinite(data) ? data : (index + 1) * 0.01;
+        const speed = baseSpeed * globalSlowdown;
+        el.style.transform = `translateX(-${latestScroll * speed}px)`;
       });
-    });
+      ticking = false;
+    }
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        latestScroll = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      },
+      { passive: true }
+    );
   });
 </script>
