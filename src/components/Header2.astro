@@ -1,0 +1,113 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<header x-data="{ showmenu: false }" class="">
+  <div
+    id="navbar"
+    class="container mx-auto p-4 flex flex-row justify-between items-center"
+  >
+    <div id="logo" class="">
+      <a href="#" class="font-display text-4xl"
+        >Astro-Tailwind starter - udvidet udgave E25</a
+      >
+    </div>
+
+    <button id="burgermenu" class="" x-on:click="showmenu = ! showmenu">
+    </button>
+  </div>
+  <nav
+    id="mobilmenu"
+    class="flex flex-col content-center"
+    x-show="showmenu"
+    x-transition
+    x-on:click="showmenu = false"
+    x-on:click.outside="showmenu = false"
+  >
+    <ul
+      class="border-t-2 border-b-2 border-black grid @container lg:grid-cols-3 gap-4 p-4"
+    >
+      <div class="@xl:border-r-2 @xl:border-black">
+        <li class=""><a href="/">Forside</a></li>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+      </div>
+      <div>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+      </div>
+      <div>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+        <li class="text-center py-2">
+          <a href="/" class={currentPath === "" ? "italic font-bold" : "italic"}
+            >Forside</a>
+        </li>
+        <li class="text-center py-2">
+          <a
+            href="/komponentbibliotek/"
+            class={currentPath === "komponentbibliotek/"
+              ? "italic font-bold"
+              : "italic"}>Komponentbibliotek</a>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</header>
