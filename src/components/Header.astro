@@ -3,7 +3,7 @@
 ---
 
 <nav
-  class="sticky grid grid-cols-5 gap-5 mx-5 mt-[60px] pb-[20px] md:grid-cols-8 md:mx-8 lg:grid-cols-12 lg:mx-10 lg:pt-4 items-center"
+  class="fixed top-0 left-0 w-full z-50 grid grid-cols-5 gap-5 px-5 md:grid-cols-8 md:px-8 lg:grid-cols-12 lg:px-10 lg:pt-4 items-center"
 >
   <!-- Logo -->
   <a href="#"
@@ -32,8 +32,43 @@
 
   <!-- Cirkelformet menu-knap -->
   <button
-    id="menu-btn"
-    class="w-8 h-8 rounded-full border-2 border-black hover:bg-[#FF5900] justify-self-end col-start-5 md:col-start-8 lg:col-start-12"
+    class="w-8 h-8 rounded-full border-2 border-black cursor-pointer justify-self-end col-start-5 md:col-start-8 lg:col-start-12"
     onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
     aria-label="Åbn menu"></button>
+
+  <!-- Fold-Out Menu -->
+
+  <div
+    id="mobile-menu"
+    class="hidden absolute top-full left-1/2 transform -translate-x-1/2 bg-white pb-6 pt-4 px-10 border border-black rounded-lg"
+  >
+    <div
+      class="border-b-1 border-black pb-3 pr-4 pt-2 md:border-b-0 md:border-r-1 md:pb-10 md:pr-14"
+    >
+      <h4>Højskoleophold</h4>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+    </div>
+    <div
+      class="border-b-1 border-black pb-3 pr-4 pt-2 md:border-b-0 md:border-r-1 md:pb-10 md:pr-14 md:pl-4"
+    >
+      <h4>Sommerhøjskole</h4>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+    </div>
+    <div
+      class="border-b-1 border-black pb-3 pr-4 pt-2 md:border-b-0 md:border-r-1 md:pb-10 md:pr-14 md:pl-4"
+    >
+      <h4>Informøder</h4>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+    </div>
+    <div class="md:pb-10 pt-2 pb-2 md:pr-3 md:pl-4 md:w-30">
+      <h4>Om os</h4>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+      <a href="#" class="block text-black"><p>Punkt</p></a>
+    </div>
+  </div>
 </nav>
